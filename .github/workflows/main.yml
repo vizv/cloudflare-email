@@ -10,7 +10,8 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@master
-      - run: npm install
+      - run: npm install itty-router
+      - run: npm install zod
       - name: Publish
         uses: cloudflare/wrangler-action@2.0.0
         with:
