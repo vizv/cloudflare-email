@@ -14,8 +14,9 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: publish --env production
           secrets: |
               TOKEN
         env:
-            CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+            CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
             TOKEN: ${{ secrets.TOKEN }}
