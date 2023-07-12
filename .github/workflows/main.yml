@@ -14,7 +14,7 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          preCommands: npm install
+          preCommands: yarn install
           command: deploy --env production
           secrets: |
               TOKEN
