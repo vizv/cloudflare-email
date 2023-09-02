@@ -12,12 +12,18 @@ jobs:
       - uses: actions/checkout@master
       - run: npm install itty-router zod
       - name: Publish
-        uses: cloudflare/wrangler-action@2.0.0
+        uses: cloudflare/wrangler-action@3.1.1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: deploy --env production
           secrets: |
               TOKEN
+              DKIM_DOMAIN
+              DKIM_SELECTOR
+              DKIM_PRIVATE_KEY
         env:
             CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
             TOKEN: ${{ secrets.TOKEN }}
+            DKIM_DOMAIN: ${{ secrets.DKIM_DOMAIN }}
+            DKIM_SELECTOR: ${{secrets.DKIM_SELECTOR}}
+            DKIM_PRIVATE_KEY: ${{secrets.DKIM_PRIVATE_KEY}}
