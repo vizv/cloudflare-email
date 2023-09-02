@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - run: npm install itty-router zod
       - name: Publish
-        uses: cloudflare/wrangler-action@3.1.1
+        uses: cloudflare/wrangler-action@3.1.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: deploy --env production
