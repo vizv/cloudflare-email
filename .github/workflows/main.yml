@@ -23,6 +23,7 @@ jobs:
               DKIM_PRIVATE_KEY
         env:
             CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+            WRANGLER_LOG: "debug"
             TOKEN: ${{ secrets.TOKEN }}
             DKIM_DOMAIN: ${{ secrets.DKIM_DOMAIN }}
             DKIM_SELECTOR: ${{secrets.DKIM_SELECTOR}}
