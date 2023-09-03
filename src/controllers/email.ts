@@ -50,8 +50,8 @@ class Email {
 
 		// Convert 'to' field
 		const toContacts: IMCContact[] = Email.convertContacts(email.to);
-		if (DKIM_SELECTOR && DKIM_SELECTOR && DKIM_PRIVATE_KEY) {
-			personalizations.push({ to: toContacts, dkim_domain: DKIM_DOMAIN, dkim_selector: DKIM_SELECTOR, dkim_private_key: DKIM_PRIVATE_KEY});
+		if (env.DKIM_SELECTOR && env.DKIM_SELECTOR && env.DKIM_PRIVATE_KEY) {
+			personalizations.push({ to: toContacts, dkim_domain: env.DKIM_DOMAIN, dkim_selector: env.DKIM_SELECTOR, dkim_private_key: env.DKIM_PRIVATE_KEY});
 		} else {
 			personalizations.push({to: toContacts});
 		}
