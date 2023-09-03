@@ -4,9 +4,3 @@ compatibility_date = "2023-09-02"
 
 [build]
 command = "npm install"
-
-[vars]
-TOKEN = ${{ secrets.TOKEN }}
-DKIM_DOMAIN = ${{ secrets.DKIM_DOMAIN }}
-DKIM_SELECTOR = ${{ secrets.DKIM_SELECTOR }}
-DKIM_PRIVATE_KEY = ${{ secrets.DKIM_PRIVATE_KEY }}

@@ -7,13 +7,13 @@ const AuthMiddleware = (request: Request, env: Env) => {
 	const token = request.headers.get('Authorization');
 
 	// Strict check for token existence
-	if (!env.TOKEN || env.TOKEN.length === 0) {
+	if (!TOKEN || TOKEN.length === 0) {
 		return new Response('You must set the TOKEN environment variable.', {
 			status: 401,
 		});
 	}
 
-	if (token !== env.TOKEN) {
+	if (token !== TOKEN) {
 		return new Response('Unauthorized', { status: 401 });
 	}
 };
