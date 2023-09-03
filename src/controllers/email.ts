@@ -36,7 +36,7 @@ class Email {
 
 		// check if email was sent successfully
 		if (resp.status > 299 || resp.status < 200) {
-			throw new Error(`Error sending email: ${resp.status} ${resp.statusText}`);
+			throw new Error(`Error sending email: ${resp.status} ${resp.statusText} - ${JSON.stringify(mcEmail)}`);
 		}
 	}
 
