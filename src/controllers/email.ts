@@ -45,7 +45,7 @@ class Email {
 	 * @param email
 	 * @protected
 	 */
-	protected static convertEmail(email: IEmail): IMCEmail {
+	protected static convertEmail(email: IEmail, env: Env): IMCEmail {
 		const personalizations: IMCPersonalization[] = [];
 
 		// Convert 'to' field
