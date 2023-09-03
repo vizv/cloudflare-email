@@ -19,9 +19,9 @@ class Email {
 	 *
 	 * @param email
 	 */
-	static async send(email: IEmail) {
+	static async send(email: IEmail, env: Env) {
 		// convert email to IMCEmail (MailChannels Email)
-		const mcEmail: IMCEmail = Email.convertEmail(email);
+		const mcEmail: IMCEmail = Email.convertEmail(email, env);
 
 		// send email through MailChannels
 		const resp = await fetch(
@@ -50,7 +50,7 @@ class Email {
 
 		// Convert 'to' field
 		const toContacts: IMCContact[] = Email.convertContacts(email.to);
-		if (env.DKIM_SELECTOR && env.DKIM_SELECTOR && env.DKIM_PRIVATE_KEY) {
+		if (env.DKIM_DOMAIN && env.DKIM_SELECTOR && env.DKIM_PRIVATE_KEY) {
 			personalizations.push({ to: toContacts, dkim_domain: env.DKIM_DOMAIN, dkim_selector: env.DKIM_SELECTOR, dkim_private_key: env.DKIM_PRIVATE_KEY});
 		} else {
 			personalizations.push({to: toContacts});
