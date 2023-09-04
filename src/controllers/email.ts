@@ -25,7 +25,7 @@ class Email {
 
 		// send email through MailChannels
 		const resp = await fetch(
-			new Request('https://api.mailchannels.net/tx/v1/send?dry-run=true', {
+			new Request('https://api.mailchannels.net/tx/v1/send', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',
