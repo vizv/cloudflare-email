@@ -85,8 +85,8 @@ You can also specify a sender and recipient name by adding a `name` parameter to
 
 ```json
 {
-	"to": { "email": "john@example.com",  "name": "John Doe" },
-	"from": { "email": "me@example.com", "name": "Jane Doe" },
+	"to": { "address": "john@example.com",  "name": "John Doe" },
+	"from": { "address": "me@example.com", "name": "Jane Doe" },
 	"subject": "Hello World",
 	"text": "Hello World"
 }
@@ -113,8 +113,8 @@ or
 ```json
 {
 	"to": [
-		{ "email": "john@example.com", "name": "John Doe" },
-		{ "email": "rose@example.com", "name": "Rose Doe" }
+		{ "address": "john@example.com", "name": "John Doe" },
+		{ "address": "rose@example.com", "name": "Rose Doe" }
  	],
 	"from": "me@example.com",
 	"subject": "Hello World",
