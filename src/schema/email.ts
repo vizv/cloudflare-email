@@ -3,7 +3,7 @@ import { z } from 'zod';
 const iContactSchema = z.union([
 	z.string(),
 	z.object({
-		email: z.string(),
+		address: z.string(),
 		name: z.union([z.string(), z.undefined()]),
 	}),
 ]);
