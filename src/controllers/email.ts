@@ -1,7 +1,7 @@
 import { IContact, IEmail } from '../schema/email';
 
 type IMCPersonalization = { to: IMCContact[], dkim_domain: string | undefined, dkim_selector: string | undefined, dkim_private_key: string | undefined};
-type IMCContact = { address: string; name: string | undefined };
+type IMCContact = { email: string; name: string | undefined };
 type IMCContent = { type: string; value: string };
 
 interface IMCEmail {
@@ -132,7 +132,7 @@ class Email {
 			return { address: contact, name: undefined };
 		}
 
-		return { address: contact.address, name: contact.name };
+		return { email: contact.address, name: contact.name };
 	}
 }
 
