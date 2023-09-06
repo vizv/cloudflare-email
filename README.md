@@ -1,21 +1,22 @@
 <div align="center">
-	<img src="https://github.com/Sh4yy/cloudflare-email/assets/23535123/36a28753-7ded-45ef-bfed-fcc308658b33" alt="Cloudflare Worker Email Server"/>
+	<img src="https://github.com/dimaguy/cloudflare-email/assets/7207103/509b1b10-372a-4e54-9aff-75e05cbc4661" alt="Cloudflare Worker Email Server"/>
 	<br>
   <h1>Cloudflare Worker Email Server</h1>
 	<p>Send free transactional emails from your Cloudflare Workers using MailChannels.</p>
 </div>
 
 
-## Getting Started!
+## Getting Started with local wrangler!
 
 1. Clone this repository
 2. Install the dependencies with `npm install`
 3. Use the command `npx wrangler secret put --env production TOKEN` to deploy a securely stored token to Cloudflare. With this command, you will be prompted to enter a random secret value, which will be used to authenticate your requests with the HTTP `Authorization` header as described below. You can also set this encrypted value directly in your Cloudflare dashboard.
-4. Deploy the worker with `npm run deploy`
+4. Repeat step 3 with the DKIM Secrets if need be
+5. Deploy the worker with `npm run deploy`
 
-Or deploy directly to Cloudflare
+Or deploy directly to Cloudflare and enable Github Actions
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Sh4yy/cloudflare-email)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dimaguy/cloudflare-email)
 
 ## Setup SPF
 
@@ -31,11 +32,20 @@ Note: If you're facing [Domain Lockdown error](https://support.mailchannels.com/
 1. Create a `TXT` record with the following values:
 
 		- Name: `_mailchannels`
-		- Value: `v=mc1 cfid=yourdomain.workers.dev` (the value of `cfid` will also be present in the error response)
+		- Value: `v=mc1 cfid=yourdomain.workers.dev` (the value of `cfid` will also be present in the error response if you do it wrong)
 
 ## Setup DKIM
 
 This step is optional, but highly recommended. DKIM is a DNS record that helps prevent email spoofing. You may follow the steps listed in the [MailChannels documentation](https://support.mailchannels.com/hc/en-us/articles/7122849237389-Adding-a-DKIM-Signature) to set up DKIM for your domain.
+
+## Used Github/Cloudflare Secrets
+
+- TOKEN - Client authentication
+- DKIM_DOMAIN - DKIM Domain
+- DKIM_PRIVATE_KEY - DKIM Private Key (Bare base64 encoded key without BEGIN and END statements and no newlines)
+- DKIM_SELECTOR - DKIM Selector
+- CF_ACCOUNT_ID - Cloudflare Account ID
+- CF_API_TOKEN - Cloudflare API Token with enough capability to deploy workers
 
 ## Usage
 
