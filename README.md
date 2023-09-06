@@ -94,7 +94,7 @@ You can also specify a sender and recipient name by adding a `name` parameter to
 
 ### Sending to Multiple Recipients
 
-You may also send to multiple recipients by passing an array of emails, or an array of objects with `email` and `name` properties.
+You may also send to multiple recipients by passing an array of emails, or an array of objects with `address` and `name` properties.
 
 ```json
 {
@@ -124,7 +124,7 @@ or
 
 ### Sending BCC and CC
 
-You can also send BCC and CC emails by passing an array of emails, an object with `email` and `name` properties, or an array of either, similar to the `to` parameter.
+You can also send BCC and CC emails by passing an array of emails, an object with `address` and `name` properties, or an array of either, similar to the `to` parameter.
 
 ```json
 {
@@ -144,7 +144,7 @@ You can also send BCC and CC emails by passing an array of emails, an object wit
 
 ### Reply To
 
-You can also specify a reply to email address by adding a `replyTo` parameter to the request. Again, you can use an email string, an object with `email` and `name` properties, or an array of either.
+You can also specify a reply to email address by adding a `replyTo` parameter to the request. Again, you can use an email string, an object with `address` and `name` properties, or an array of either.
 
 ```json
 {
